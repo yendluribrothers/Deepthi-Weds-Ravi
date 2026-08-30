@@ -1,0 +1,56 @@
+DEEPTHI & RAVI WEDDING — GOOGLE SHEETS GUEST BOOK
+
+WHAT THIS PACKAGE DOES
+Your GitHub Pages wedding website will send each Guest Book submission to your Google Sheet.
+
+FLOW
+Guest → GitHub website → Google Apps Script → Google Sheet → You
+
+SETUP
+
+1. Create a new Google Sheet.
+   Example name: Deepthi & Ravi Wedding Guest Book
+
+2. In that Sheet, click:
+   Extensions → Apps Script
+
+3. Delete the sample code and paste the contents of Code.gs from this package.
+
+4. Click Save.
+
+5. Click Deploy → New deployment.
+
+6. Select:
+   Type: Web app
+   Execute as: Me
+   Who has access: Anyone
+
+7. Click Deploy and authorize Google if asked.
+
+8. Copy the Web app URL. It will look similar to:
+   https://script.google.com/macros/s/XXXXXXXXXXXX/exec
+
+9. Open deepthi-ravi-wedding-google-sheet.html in a text editor.
+
+10. Find:
+   const GUESTBOOK_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+11. Replace the placeholder with your Web app URL, for example:
+   const GUESTBOOK_SCRIPT_URL = 'https://script.google.com/macros/s/XXXXXXXXXXXX/exec';
+
+12. Save the HTML file as index.html and replace your current index.html in GitHub.
+
+13. Wait for GitHub Pages to publish.
+
+14. Test from a phone using the public website:
+   Enter a name and blessing → Sign Guest Book.
+
+15. Open the Google Sheet. A new row should appear under:
+   Timestamp | Guest Name | Message | Website Page
+
+IMPORTANT
+- The Google Sheet is where YOU receive the data.
+- Do not put the Google Sheet URL in the website.
+- The Apps Script Web App URL is safe to place in the website because it is the public submission endpoint.
+- The current website still keeps a local copy so the submitting guest can see their message on that browser.
+- Existing messages that were submitted before this change cannot be recovered from GitHub, because the old version stored them only in the submitting browser's localStorage.
